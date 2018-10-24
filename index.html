@@ -5,6 +5,23 @@
     <title>tienchi-man</title>
 </head>
 <body>
-<a href="./vue-io/utils/index.html">utils</a>
+<div style="font-size: 20px;color:red;" id="demo">default</div>
+<script>
+    var x = document.getElementById("demo");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
+        else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        x.innerHTML = JSON.stringify(position, null, 2)
+    }
+    getLocation()
+</script>
 </body>
 </html>
